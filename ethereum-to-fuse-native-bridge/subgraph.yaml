@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ForeignBridgeNativeToErc
+    network: mainnet
+    source:
+      address: "0x3014ca10b91cb3D0AD85fEf7A3Cb95BCAc9c0f79"
+      abi: ForeignBridgeNativeToErc
+      startBlock: 11374779
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - RelayedMessage
+      abis:
+        - name: ForeignBridgeNativeToErc
+          file: ./abis/ForeignBridgeNativeToErc.json
+      eventHandlers:
+        - event: RelayedMessage(address,uint256,bytes32)
+          handler: handleRelayedMessage
+      file: ./src/mapping.ts

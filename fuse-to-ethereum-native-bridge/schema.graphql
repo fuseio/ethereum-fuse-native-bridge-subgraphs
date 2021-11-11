@@ -1,0 +1,9 @@
+type UserRequestForSignature @entity {
+  id: ID!
+  recipient: Bytes!
+  value: BigInt!
+  txHash: Bytes!
+  message: Bytes!
+  messageHash: Bytes
+  signatures: [Bytes!]
+}

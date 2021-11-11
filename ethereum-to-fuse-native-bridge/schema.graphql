@@ -1,0 +1,6 @@
+type RelayedMessage @entity {
+  id: ID!
+  recipient: Bytes!
+  value: BigInt!
+  homeTxHash: Bytes!
+}
